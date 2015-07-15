@@ -45,5 +45,6 @@
         <file>icons/dialog-ok.svg</file>
         <file>icons/dialog-apply.svg</file>
         <file>icons/text-x-generic-template.svg</file>
+        <file>images/nodemcu.svg</file>
     </qresource>
 </RCC>
