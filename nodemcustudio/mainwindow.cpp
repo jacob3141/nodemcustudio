@@ -298,8 +298,18 @@ void MainWindow::on_connectPushButton_clicked() {
     }
 }
 
+void MainWindow::on_disconnectPushButton_clicked() {
+  _serialPort->close();
+  ui->serialTextEdit->setEnabled(false);
+  ui->serialSendComboBox->setEnabled(false);
+  ui->sendPushButton->setEnabled(false);
+  ui->connectPushButton->setEnabled(true);
+  ui->disconnectPushButton->setEnabled(false);
+
+}
+
 void MainWindow::on_serialSendComboBox_activated(QString command) {
-    QByteArray data = command.toAscii();
+    QByteArray data = command.toLatin1();
     data.append("\r\n");
     _serialPort->write(data);
 
@@ -317,7 +327,7 @@ void MainWindow::serialPortSurvey() {
 void MainWindow::readSerial() {
     QByteArray data = _serialPort->readAll();
     ui->serialTextEdit->moveCursor(QTextCursor::End);
-    ui->serialTextEdit->textCursor().insertText(QString::fromAscii(data));
+    ui->serialTextEdit->textCursor().insertText(QString::fromLatin1(data));
     ui->serialTextEdit->moveCursor(QTextCursor::End);
 }
 
