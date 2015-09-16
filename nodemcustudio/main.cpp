@@ -25,9 +25,18 @@
 #include <QApplication>
 #include <QFile>
 #include <QDebug>
+#include <QTranslator>
 
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
+    
+    QTranslator qtTranslator;
+    QString lang;
+    lang = (QLocale::languageToString(QLocale().language()) + ".qm");
+        qtTranslator.load(lang);
+            //qDebug() << lang;
+    a.installTranslator(&qtTranslator);
+    
     MainWindow w;
     w.show();
 
