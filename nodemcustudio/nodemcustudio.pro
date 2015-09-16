@@ -25,7 +25,6 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets webkitwidgets
 TARGET = nodemcustudio
 TEMPLATE = app
 
-
 SOURCES += main.cpp\
         mainwindow.cpp
 
@@ -38,5 +37,12 @@ include(../pods.pri)
 RESOURCES += \
     resources.qrc
 
-
 LIBS += -lqscintilla2 -lqextserialport
+
+TRANSLATIONS = translations/Russian.ts\
+    translations/English.ts\
+    translations/French.ts\
+    translations/Spanish.ts\
+    translations/German.ts\
+    translations/Dutch.ts\
+    translations/Chinese.ts
